@@ -120,11 +120,6 @@ ZHCash Docs: Coming soon
 This testnet is experimental and may be restarted or reset without notice.
 Do not use real assets or sensitive data.
 
-
----
-
-Вот профессиональный перевод статьи на **английский язык** — для публикации на сайте, в документации или блоге ZHCash (ZHChain):
-
 ---
 
 # 📡 The Role of the Testnet in the ZHCash (ZHChain) Ecosystem
