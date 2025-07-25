@@ -1,197 +1,46 @@
-# ZHCash Testnet
-
-This repository contains configuration and tools for launching and maintaining the **ZHCash (ZHChain) testnet**.
-
-## 🔧 Purpose
-
-The testnet is designed for:
-
-- Testing new features and protocol updates without risk to the mainnet
-- Debugging smart contracts and DApps before production deployment
-- Experimenting with node behavior, transactions, and consensus mechanisms
-- Developing and testing infrastructure (validators, API services, monitoring, etc.)
-
-## 📂 Repository Structure
-
-- `genesis.json` — initial chain configuration for the testnet
-- `config/` — node, network, port, and block parameter settings
-- `scripts/` — utilities and scripts to launch, sync, and monitor testnet nodes
-- `peers.txt` — recommended peer node list for connecting to the network
-
-## 🚀 Quick Start
-
-```bash
-git clone https://github.com/zhcash/testnet.git
-cd testnet
-./scripts/start-testnet.sh
-
-See inline comments in the scripts/ directory for detailed usage and custom options.
-
-🌐 Resources
-Official Website: https://zhchain.sbs or https://zh.cash
-
-Node Monitoring Dashboard: https://zhcash.network
-
-ZHCash Docs: Coming soon
-
-⚠️ Warning
-The testnet is a sandbox environment and may be restarted or reset at any time. Do not use real assets or sensitive data.
-
-ZHCash (ZHChain) — A next-generation decentralized blockchain platform.
-
-# ZHCash Testnet
-
-This repository contains configuration files and tools for launching and maintaining the **ZHCash (ZHChain) testnet**.
-
-## 🔧 Purpose
-
-The testnet is a safe environment for:
-
-- Testing protocol updates and new features before mainnet deployment
-- Developing and debugging smart contracts and applications
-- Experimenting with network performance and consensus mechanisms
-- Building infrastructure (validators, APIs, monitoring tools)
-
----
-
-## 📂 Repository Structure
-
-- `genesis.json` — initial chain setup for testnet
-- `config/` — configuration files for nodes, ports, and network parameters
-- `scripts/` — automation scripts for launching and monitoring testnet
-- `peers.txt` — active peer node list for bootstrap connection
-
----
-
-## 🚀 Quick Start (Manual)
-
-```bash
-git clone https://github.com/zhcash/testnet.git
-cd testnet
-./scripts/start-testnet.sh
-
-tmux new -s zh-testnet
-./zerohourd -testnet
-# Detach: Ctrl + B, then D
-# Attach again: tmux attach -t zh-testnet
-
-tmux new -s zh-testnet
-./zerohourd -testnet
-# Detach: Ctrl + B, then D
-# Attach again: tmux attach -t zh-testnet
-
-docker run -d \
-  --name=zh-testnet-node \
-  -v $PWD/.zerohour:/root/.zerohour \
-  -p 16100:16100 -p 16101:16101 \
-  zhchain/zerohourd:latest \
-  zerohourd -testnet
-
-[Unit]
-Description=ZHCash Testnet Node
-After=network.target
-
-[Service]
-User=ubuntu
-WorkingDirectory=/home/ubuntu/zhcash
-ExecStart=/home/ubuntu/zhcash/zerohourd -testnet
-Restart=always
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-
-sudo systemctl daemon-reexec
-sudo systemctl enable zerohourd-testnet
-sudo systemctl start zerohourd-testnet
-
-./zerohour-cli -testnet getblockchaininfo
-./zerohour-cli -testnet getpeerinfo
-./zerohour-cli -testnet getwalletinfo
-
-🌐 Resources
-Official Site: https://zhchain.sbs or https://zh.cash 
-
-Node Dashboard: https://zhcash.network
-
-ZHCash Docs: Coming soon
-
-⚠️ Notice
-This testnet is experimental and may be restarted or reset without notice.
-Do not use real assets or sensitive data.
-
----
-
-# 📡 The Role of the Testnet in the ZHCash (ZHChain) Ecosystem
-
-The **ZHCash (ZHChain) testnet** is a critical component of the blockchain infrastructure, providing a secure and controlled environment for development, testing, and deployment of new features before they reach the main network (mainnet). It plays a key role in ensuring the **stability, reliability, and security** of the entire ecosystem.
-
----
-
-## Why Is the Testnet Important?
-
-The testnet is a duplicate network, technically identical to the mainnet, but without any real financial value. It enables developers and node operators to:
-
-🔬 **Develop and debug**
-
-* Test new features and protocol upgrades
-* Validate smart contracts, transactions, and consensus logic
-* Simulate various network scenarios
-
-🧪 **Experiment and research**
-
-* Conduct load testing and performance analysis
-* Evaluate scalability under different conditions
-* Test innovative solutions without real-world risk
-
-🛡 **Mitigate risks**
-
-* Prevent bugs and vulnerabilities from affecting the mainnet
-* Identify weaknesses and ensure proper fixes
-* Prepare updates without exposing users' assets to danger
-
----
-
-## How Does the ZHCash Testnet Work?
-
-The ZHCash testnet:
-
-* Has its own independent blockchain and genesis block
-* Uses separate ports and a different network identifier
-* Operates with test coins that have no market value
-* Can be restarted or reset as needed for protocol changes
-
----
-
-## Who Uses the Testnet?
-
-* **Developers** — for building and testing smart contracts, apps, and wallets
-* **Validators & Node Operators** — to validate setup, sync, and stability
-* **Security Researchers** — to explore vulnerabilities and network behavior
-* **Community Members** — to preview and test upcoming features
-
----
-
-## Impact on the ZHCash Ecosystem
-
-📈 **Quality Assurance**
-Only tested, stable solutions are deployed on the mainnet.
-
-⚙️ **Continuous Innovation**
-Ongoing development and upgrades are made possible without disrupting the live chain.
-
-🤝 **Transparency**
-Open access to testnet fosters collaboration and trust among developers and the wider community.
-
----
-
-## Conclusion
-
-The **ZHCash (ZHChain) testnet** is not just a sandbox — it's a **foundation for sustainable innovation**. It enables low-risk experimentation, supports developer engagement, and ensures a robust and secure environment for the evolution of the ZHCash ecosystem.
-
----
-
-If you'd like, I can help convert this article into a PDF, Webflow blog post, GitHub Wiki format, or a social media version with emojis and hashtags.
-
-
-Doc by GRAViTON
+What is ZHCASH?
+-------------
+
+ZHCASH is a decentralized blockchain project built on Bitcoin's UTXO model, with support for Ethereum Virtual Machine based smart contracts, and secured by a proof of stake consensus model. It achieves this through the revolutionary Account Abstraction Layer which allows the EVM to communicate with ZHCASH's Bitcoin-like UTXO blockchain. For more general information about ZHCASH as well as links to join our community, go to https://zh.cash.
+
+What is ZHCASH Core?
+------------------
+
+ZHCASH Core is our primary mainnet wallet. It implements a full node and is capable of storing, validating, and distributing all history of the ZHCASH network. ZHCASH Core is considered the reference implementation for the ZHCASH network. 
+
+ZHCASH Core currently implements the following:
+
+* Sending/Receiving ZHC coins
+* Sending/Receiving ZRC20 tokens on the ZHCASH network
+* Staking and creating blocks for the ZHCASH network
+* Creating and interacting with smart contracts
+* Running a full node for distributing the blockchain to other users
+* "Prune" mode, which minimizes disk usage
+* Regtest mode, which enables developers to very quickly build their own private ZHCASH network for Dapp testing
+* Testnet mode, using the public ZHCASH Testnet, with faucet available
+* Compatibility with the Bitcoin Core set of RPC commands and APIs
+* Full SegWit capability with p2sh-segwit (legacy) and bech32 (native) addresses
+
+This is a quick start script for compiling ZHCASH on Ubuntu 20.04. On UBUNTU newer than 20.04, compilation is only possible without qt
+
+    sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils git cmake libboost-all-dev libgmp3-dev
+    sudo apt-get update
+
+    # If you want to build the Qt GUI:
+    sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler qrencode
+
+    git clone https://github.com/zerohourcash/zerohourcash --recursive
+    cd zerohourcash
+
+    # Note autogen will prompt to install some more dependencies if needed
+    1. Go to the "depends" folder, run: 
+        make -j$(nproc)                              // For linux. Wait until it finishes (about 10–15 minutes). The last line will show a path — copy it to the clipboard.
+        make HOST=x86_64-w64-mingw32 -j$(nproc)      // to compile for windows
+    2. Run:
+        autogen.sh.
+    3. Run:
+        ./configure --prefix=/root/zerohourcash/depends/x86_64-pc-linux-gnu     // paste the path from step 1 right after the equals sign in prefix
+        ./configure --prefix=/root/zerohourcash/depends/x86_64-w64-mingw32 --with-gui=qt5 --host=x86_64-w64-mingw32 --enable-static --disable-shared  CXX=x86_64-w64-mingw32-g++  CXXFLAGS="-static-libgcc -static-libstdc++"    // to configure for windows
+    4. Go to "zerohourcash" folder. Run: 
+        make -j$(nproc)                              // and wait (about 20–25 minutes).
+    
